@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/customerList">
+
+    <fragment
+        android:id="@+id/customerLocation"
+        android:name="com.alexmumo.saleslifetest.ui.fragments.CustomerLocation"
+        android:label="fragment_customer_location"
+        tools:layout="@layout/fragment_customer_location" >
+        <action
+            android:id="@+id/action_customerLocation_to_addCustomer"
+            app:destination="@id/addCustomer" />
+    </fragment>
+    <fragment
+        android:id="@+id/customerList"
+        android:name="com.alexmumo.saleslifetest.ui.fragments.CustomerList"
+        android:label="fragment_customer_list"
+        tools:layout="@layout/fragment_customer_list" >
+        <action
+            android:id="@+id/action_customerList_to_addCustomer"
+            app:destination="@id/addCustomer" />
+        <action
+            android:id="@+id/action_customerList_to_customerLocation"
+            app:destination="@id/customerLocation" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCustomer"
+        android:name="com.alexmumo.saleslifetest.ui.fragments.AddCustomer"
+        android:label="fragment_add_customer"
+        tools:layout="@layout/fragment_add_customer" >
+        <action
+            android:id="@+id/action_addCustomer_to_customerLocation"
+            app:destination="@id/customerLocation" />
+        <action
+            android:id="@+id/action_addCustomer_to_customerList"
+            app:destination="@id/customerList" />
+    </fragment>
+</navigation>

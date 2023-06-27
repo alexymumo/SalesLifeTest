@@ -5,18 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.alexmumo.saleslifetest.R
+import com.alexmumo.saleslifetest.databinding.FragmentCustomerLocationBinding
 
 class CustomerLocation : Fragment() {
 
+    private lateinit var binding: FragmentCustomerLocationBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_customer_location, container, false)
+    ): View {
+        binding = FragmentCustomerLocationBinding.inflate(layoutInflater)
+        return binding.root
     }
 }
