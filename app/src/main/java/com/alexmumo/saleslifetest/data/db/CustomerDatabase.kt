@@ -10,7 +10,7 @@ import com.alexmumo.saleslifetest.data.entity.Customer
 @Database(
     entities = [Customer::class],
     exportSchema = false,
-    version = 1
+    version = 3
 )
 abstract class CustomerDatabase: RoomDatabase() {
 
@@ -35,8 +35,7 @@ abstract class CustomerDatabase: RoomDatabase() {
                 context.applicationContext,
                 CustomerDatabase::class.java,
                 "customer.db"
-            ).build()
-
+            ).fallbackToDestructiveMigration().build()
         }
     }
 }

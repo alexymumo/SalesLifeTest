@@ -24,6 +24,7 @@ class CustomerAdapter : ListAdapter<Customer, CustomerRecyclerViewHolder>(Custom
         holder.firstname.text = customer.firstname
         holder.lastname.text = customer.lastname
         holder.surname.text = customer.surname
+        holder.location.text = customer.location
 
         holder.itemView.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_customerList_to_customerLocation)
@@ -35,6 +36,7 @@ class CustomerRecyclerViewHolder(itemView: View): RecyclerView.ViewHolder(itemVi
     val firstname: TextView = itemView.findViewById(R.id.firstname)
     val surname: TextView = itemView.findViewById(R.id.secondname)
     val lastname: TextView = itemView.findViewById(R.id.lastname)
+    val location: TextView = itemView.findViewById(R.id.location)
 }
 
 class CustomerComparator: DiffUtil.ItemCallback<Customer>() {

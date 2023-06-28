@@ -38,13 +38,20 @@ class AddCustomer : Fragment() {
 
             when {
                 firstname.isEmpty() -> {
+                    binding.firstname.error = "Cannot be empty"
+                }
+                lastname.isEmpty() -> {
+                    binding.lastname.error = "Cannot be empty"
+                }
+                location.isEmpty() -> {
+                    binding.location.error = "Cannot be empty"
                 }
                 surname.isEmpty() -> {
-
+                    binding.surname.error = "Cannot be empty"
                 } else -> {
-                    customerViewModel.saveCustomer(Customer(0, firstname,surname, lastname, null, null))
+                    customerViewModel.saveCustomer(Customer(0, firstname,surname, lastname, location))
                     Toast.makeText(context, "Saved", Toast.LENGTH_LONG).show()
-                findNavController().navigate(R.id.action_addCustomer_to_customerList)
+                    findNavController().navigate(R.id.action_addCustomer_to_customerList)
                 }
             }
         }
